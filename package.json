@@ -1,0 +1,21 @@
+{
+  "name": "labeling-portal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build && gulp clean_build",
+    "clean": "gulp clean"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "dotenv": "^6.2.0",
+    "lalalia": "^1.0.21"
+  },
+  "dependencies": {
+    "@gotit/ui_core": "github:tutoruniverse/design_ui_core#master"
+  }
+}

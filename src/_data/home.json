@@ -1,0 +1,19 @@
+{
+  "navbar": {
+    "logined": {
+      "items": [
+        {
+          "title": "Refer and Earn",
+          "class": "gi-Button gi-Button--primaryOutline"
+        }
+      ],
+      "profile": [
+        {
+          "title": "Logout",
+          "url": "landing.html",
+          "icon": "icon ion-ios-power"
+        }
+      ]
+    }
+  }
+}

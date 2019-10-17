@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "context": {
+      "logo": {
+        "alt": "Labeling Portal",
+        "src": "assets/images/logo.svg",
+        "url": "home.html"
+      }
+    }
+  }
+}

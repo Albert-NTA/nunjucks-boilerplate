@@ -1,0 +1,386 @@
+{% extends "layout.njk"%}
+{% set pageTitle = 'Labeler | Got It Pro On-demand Excel help' %}
+{% set classLayout = 'gi-Workspace' %}
+{% set navbar = {
+    context: general.navbar.context,
+    logined: labeler.navbar.logined
+    }
+%}
+{# {% set  performance = labeler.performance %} #}
+{% block pageHeader %}
+    {% include "component/_gi-navBar.njk" %}
+{% endblock %}
+
+{% block pageBody %}
+    <div class="gi-LayoutMainWrap">
+        <!-- left side: -->
+        <div class="gi-LayoutMain is-codemirror">
+            <div class="gi-Workspace-head"></div>
+            <div class="gi-Workspace-body">
+                <div class="u-border u-height-100 u-backgroundWhite">
+                    <div class="u-backgroundLightalt u-paddingVertical-2 u-paddingHorizontal-3 u-borderBottom">
+                        <span class="u-fontMedium u-textSmall">SQL Query</span>
+                    </div>
+                    <div class="u-flex u-flexShrink-0 u-positionRelative gi-LabelingSpace-sqlQuery">
+                        <div class="u-positionAbsolute u-position--top u-position--left u-position--bottom u-position--right">
+                            <textarea class="js-codemirror"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- right side: -->
+        <div class="gi-LayoutMain">
+            <div class="gi-Workspace-head"></div>
+            <div class="gi-Workspace-body">
+                <!-- top section: -->
+                <div class="u-flex u-flexColumn u-flexGrow-1 u-border u-backgroundWhite u-marginBottom-3">
+                    <div class="u-backgroundLightalt u-paddingVertical-2 u-paddingHorizontal-3 u-borderBottom">
+                        <span class="u-fontMedium u-textSmall">Please read the following label carefully and complete the audit form below</span>
+                    </div>
+                    <div class="u-flexGrow-1 u-overflowVerticalAuto" style="height: 1px;">
+                        <div class="u-padding-3">
+                            <div class="u-marginBottom-2">
+                                <textarea class="gi-Input" rows="3" placeholder="Label" disabled>Get me a list of all the global customer ids for leads created before March 10, 2019</textarea>
+                            </div>
+                            <div class="u-marginTop-3">
+                                <button class="gi-Button gi-Button--primary u-width-100" onclick="$('#modal-review').modal();">Submit</button>
+                            </div>
+                        </div>
+
+                        <hr class="u-marginVertical-2" />
+
+                        <div class="u-padding-3">
+                            <label class="u-fontMedium">Does the query make any business sense?</label>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="1" checked="" name="radioA" id="radioA1">
+                                    <label class="gi-InputCustom-label" for="radioA1">Yes</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="0" name="radioA" id="radioA2">
+                                    <label class="gi-InputCustom-label" for="radioA2">No</label>
+                                </div>
+                            </div>
+                            <div class="u-marginTop-3">
+                                <button class="gi-Button gi-Button--primary u-width-100">Submit</button>
+                            </div>
+                        </div>
+
+                        <div class="u-padding-3">
+                            <label class="u-fontMedium">Does the label accurately capture functionality of the query?</label>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="2" name="radioB" id="radioB1">
+                                    <label class="gi-InputCustom-label" for="radioB1">Yes</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="1" name="radioB" id="radioB2">
+                                    <label class="gi-InputCustom-label" for="radioB2">Partially Accurate</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="0" checked="" name="radioB" id="radioB3">
+                                    <label class="gi-InputCustom-label" for="radioB3">No</label>
+                                </div>
+                            </div>
+                            <div class="u-marginTop-3">
+                                <button class="gi-Button gi-Button--primary u-width-100">Submit</button>
+                            </div>
+                        </div>
+
+                        <div class="u-padding-3">
+                            <label class="u-fontMedium">Please select the reason(s) for inaccuracy</label>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--checkbox">
+                                    <input type="checkbox" class="gi-InputCustom-input" value="1" checked="" name="checkboxA" id="checkboxA1">
+                                    <label class="gi-InputCustom-label" for="checkboxA1">Incorrect or missing WHERE clause</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--checkbox">
+                                    <input type="checkbox" class="gi-InputCustom-input" value="2" checked="" name="checkboxA" id="checkboxA2">
+                                    <label class="gi-InputCustom-label" for="checkboxA2">Incorrect or missing ORDER BY clause</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--checkbox">
+                                    <input type="checkbox" class="gi-InputCustom-input" value="3" name="checkboxA" id="checkboxA3">
+                                    <label class="gi-InputCustom-label" for="checkboxA3">Incorrect fields used</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--checkbox">
+                                    <input type="checkbox" class="gi-InputCustom-input" value="3" name="checkboxA" id="checkboxA4">
+                                    <label class="gi-InputCustom-label" for="checkboxA4">Label does not incorporate JOINS or Subqueries</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--checkbox">
+                                    <input type="checkbox" class="gi-InputCustom-input" value="3" checked="" name="checkboxA" id="checkboxA5">
+                                    <label class="gi-InputCustom-label" for="checkboxA5">Other</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <textarea class="gi-Input" rows="3" placeholder="Provide details"></textarea>
+                            </div>
+                            <div class="u-marginTop-3">
+                                <button class="gi-Button gi-Button--primary u-width-100">Submit</button>
+                            </div>
+                        </div> 
+                        
+                        <div class="u-padding-3">
+                            <label class="u-fontMedium">Please rate the English used by the labeler</label>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="1" checked="" name="radioC" id="radioC1">
+                                    <label class="gi-InputCustom-label" for="radioC1">Looks great, no spelling or grammatical mistakes</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="0" name="radioC" id="radioC2">
+                                    <label class="gi-InputCustom-label" for="radioC2">Looks okay, 1-2 spelling or grammatical mistakes</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="0" name="radioC" id="radioC3">
+                                    <label class="gi-InputCustom-label" for="radioC3">More than 2 spelling or grammatical mistakes but the label still makes sense</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="0" name="radioC" id="radioC4">
+                                    <label class="gi-InputCustom-label" for="radioC4">It’s hard to make sense or the label</label>
+                                </div>
+                            </div>
+                            <div class="u-marginTop-3">
+                                <button class="gi-Button gi-Button--primary u-width-100">Submit</button>
+                            </div>
+                        </div>
+
+                        <div class="u-padding-3">
+                            <label class="u-fontMedium">Please rate the Naturality of the label</label>
+                            <div class="u-flex u-marginBottom-2">
+                                <div class="u-marginRight-4">
+                                    <div class="gi-InputCustom gi-InputCustom--radio">
+                                        <input type="radio" class="gi-InputCustom-input" value="1" name="radioD" id="radioD1">
+                                        <label class="gi-InputCustom-label" for="radioD1">1</label>
+                                    </div>
+                                </div>
+                                <div class="u-marginRight-4">
+                                    <div class="gi-InputCustom gi-InputCustom--radio">
+                                        <input type="radio" class="gi-InputCustom-input" value="0" name="radioD" id="radioD2">
+                                        <label class="gi-InputCustom-label" for="radioD2">2</label>
+                                    </div>
+                                </div>
+                                <div class="u-marginRight-4">
+                                    <div class="gi-InputCustom gi-InputCustom--radio">
+                                        <input type="radio" class="gi-InputCustom-input" value="0" name="radioD" id="radioD3">
+                                        <label class="gi-InputCustom-label" for="radioD3">3</label>
+                                    </div>
+                                </div>
+                                <div class="u-marginRight-4">
+                                    <div class="gi-InputCustom gi-InputCustom--radio">
+                                        <input type="radio" class="gi-InputCustom-input" value="0" checked="" name="radioD" id="radioD4">
+                                        <label class="gi-InputCustom-label" for="radioD4">4</label>
+                                    </div>
+                                </div>
+                                <div class="u-marginRight-4">
+                                    <div class="gi-InputCustom gi-InputCustom--radio">
+                                        <input type="radio" class="gi-InputCustom-input" value="0" name="radioD" id="radioD5">
+                                        <label class="gi-InputCustom-label" for="radioD5">5</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label class="u-fontMedium u-marginTop-3">Please select the reason(s) for low “Naturality” score?</label>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--checkbox">
+                                    <input type="checkbox" class="gi-InputCustom-input" value="1" checked="" name="checkboxE" id="checkboxE1">
+                                    <label class="gi-InputCustom-label" for="checkboxE1">Actual column names used in the label that could have been avoided</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--checkbox">
+                                    <input type="checkbox" class="gi-InputCustom-input" value="2" checked="" name="checkboxE" id="checkboxE2">
+                                    <label class="gi-InputCustom-label" for="checkboxE2">SQL function used in the label that could have been avoided</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--checkbox">
+                                    <input type="checkbox" class="gi-InputCustom-input" value="3" name="checkboxE" id="checkboxE3">
+                                    <label class="gi-InputCustom-label" for="checkboxE3">SQL Operator used that could have been avoided</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--checkbox">
+                                    <input type="checkbox" class="gi-InputCustom-input" value="3" name="checkboxE" id="checkboxE4">
+                                    <label class="gi-InputCustom-label" for="checkboxE4">Other</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <textarea class="gi-Input" rows="3" placeholder="Provide details"></textarea>
+                            </div>
+
+                            <div class="u-marginTop-3">
+                                <button class="gi-Button gi-Button--primary u-width-100">Submit</button>
+                            </div>
+                        </div>
+
+                        <div class="u-padding-3">
+                            <label>Please submit the correct label</label>
+                            <div class="u-marginBottom-2">
+                                <textarea class="gi-Input" rows="3" placeholder="Label"></textarea>
+                            </div>
+
+                            <label class="u-marginTop-3">Please submit any additional feedback you have for the labeler</label>
+                            <div class="u-marginBottom-2">
+                                <textarea class="gi-Input" rows="3" placeholder="Your feedback"></textarea>
+                            </div>
+
+                            <div class="u-marginTop-4">
+                                <button class="gi-Button gi-Button--primary u-width-100">Submit</button>
+                            </div>
+                        </div>
+
+                        <div class="u-padding-3">
+                            <div class="u-marginBottom-2">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="1" name="radioF" id="radioF1">
+                                    <label class="gi-InputCustom-label" for="radioF1">Label 1</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <textarea class="gi-Input" rows="3" placeholder="Label" disabled>Get me a list of all the global customer ids for leads created before March 10, 2019</textarea>
+                            </div>
+
+                            <div class="u-marginBottom-2 u-marginTop-3">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="2" name="radioF" id="radioF2">
+                                    <label class="gi-InputCustom-label" for="radioF2">Label 2</label>
+                                </div>
+                            </div>
+                            <div class="u-marginBottom-2">
+                                <textarea class="gi-Input" rows="3" placeholder="Label" disabled>Get me a list of all the global customer ids for leads created before March 10, 2019</textarea>
+                            </div>
+
+                            <div class="u-marginBottom-2 u-marginTop-3">
+                                <div class="gi-InputCustom gi-InputCustom--radio">
+                                    <input type="radio" class="gi-InputCustom-input" value="2" name="radioF" id="radioF3">
+                                    <label class="gi-InputCustom-label" for="radioF3">Both Incorrect</label>
+                                </div>
+                            </div>
+
+                            <div class="u-marginTop-4">
+                                <button class="gi-Button gi-Button--primary u-width-100" disabled>Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- bottom section: -->
+                <!--<div class="gi-LabelingSpace-performance u-border u-backgroundWhite is-show">-->
+                <div class="u-flex u-flexColumn gi-LabelingSpace-performance u-border u-backgroundWhite is-show">
+                    <div class="u-backgroundLightalt u-borderBottom u-flex u-alignItemsCenter u-paddingVertical-1 u-justifyContentBetween">
+                        <span class="u-paddingHorizontal-3 u-fontMedium u-textSmall">Labeling Performance</span>
+                        <div class="u-flex">
+                            <div class="u-paddingHorizontal-2">
+                                <button class="gi-Button gi-Button--primaryOutline gi-Button--sm">
+                                    Audit results
+                                </button>
+                            </div>
+                            <button class="gi-Button gi-Button--sm">
+                                <i class="icon ion-ios-arrow-up"></i>
+                                <!--<i class="icon ion-ios-arrow-down"></i>-->
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="gi-LabelingSpace-performanceContent u-flexColumn u-padding-3 u-overflowVerticalAuto">
+                        <div class="u-flex u-marginBottom-2">
+                            <i class="icon ion-ios-calendar u-textLarge u-textGray"></i>
+                            <div class="u-paddingLeft-2">Aug 1 - Aug 7</div>
+                        </div>
+                        <div class="row u-fontMedium">
+                            <div class="col-sm-6">
+                                <table>
+                                    <tr>
+                                        <td class="u-paddingVertical-1" nowrap>Rank:</td>
+                                        <td class="u-paddingLeft-3">0.7</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u-paddingVertical-1" nowrap>Labels Completed:</td>
+                                        <td class="u-paddingLeft-3">200</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u-paddingVertical-1" nowrap>Labels/hours:</td>
+                                        <td class="u-paddingLeft-3">12</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-6">
+                                <table>
+                                    <tr>
+                                        <td class="u-paddingVertical-1" nowrap>Audit Accuracy:</td>
+                                        <td class="u-paddingLeft-3">80%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u-paddingVertical-1" nowrap>Avg English Score:</td>
+                                        <td class="u-paddingLeft-3">2.3</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u-paddingVertical-1" nowrap>Avg Naturallity Score:</td>
+                                        <td class="u-paddingLeft-3">2.3</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        {# <ul class="row u-padding-0 u-marginBottom-0 u-marginTop-2">
+                            {% for item in performance %}
+                                <li class="u-block col-md-6 u-fontMedium u-marginBottom-2">
+                                    <div class="u-flex u-justifyContentBetween">
+                                        <span>{{item.label}}:</span>
+                                        <span>{{item.value}}</span>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul> #}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block afterBody %}
+    <div class="modal fade" id="modal-review" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Auditors are reviewing your labels</h4>
+                </div>
+                <div class="modal-body">
+                    <p><img src="assets/images/label-reviewing.svg" class="gi-ImgFluid u-block u-marginHorizontalAuto" alt="" /></p>
+                    <p>Our auditors are currently auditing your labels and will provide you feedback soon. You will be able to resume labeling queries once all your labels are audited.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extraJS %}
+    <script>
+        $(document).ready(function() {
+            
+        });
+    </script>
+{% endblock %}

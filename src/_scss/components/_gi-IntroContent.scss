@@ -1,0 +1,185 @@
+.gi-IntroContent {
+}
+
+.gi-IntroContent-container {
+  display: none;
+  position: absolute;
+  top: -120%;
+  //bottom: 77%;
+  right: 50%;
+
+  z-index: 12; //set to be on top of the header which has z-index:11)
+  transition: all 0.2s ease-in-out;
+  //padding: 32px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.gi-IntroContent-body {
+  position: relative;
+  color: #fff;
+  width: 500px;
+  padding-bottom: 32px;
+  padding-right: 100px;
+  font-size: 22px;
+
+  .gi-IntroContent-arrow {
+    position: absolute;
+    width: 80px;
+    top: 30px;
+    //bottom: 0px;
+    right: 0;
+    //margin-bottom: 32px;
+  }
+
+  p {
+    margin-bottom: 0.75em;
+  }
+  ul {
+    margin-bottom: 1rem;
+  }
+  ul li {
+    //padding: inherit;
+    padding: 0 0 0 8px;
+    width: inherit;
+    list-style-type: disc;
+  }
+}
+
+// ------------
+// When active:
+
+.gi-IntroContent.is-active {
+  position: relative;
+  z-index: 12; //set to be on top of the header (z-index=11)
+
+  // Background:
+  &:before {
+    content: "";
+    background: rgba(#000, 0.85);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 12; //set to be on top of the header (z-index=11)
+  }
+
+  // Popup content:
+  .gi-IntroContent-container {
+    // left: calc(100% + 16px);
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  // Content to highlight:
+  .gi-IntroContent-highlight {
+    position: relative;
+    z-index: 12;
+  }
+}
+
+//
+.gi-IntroContent--right {
+  .gi-IntroContent-container {
+    top: 80px;
+    right: auto;
+    //bottom: auto;
+    left: 100%;
+    padding: 0 0 0 80px;
+  }
+  .gi-IntroContent-arrow {
+    top: -100px;
+    left: -16px;
+    bottom: auto;
+    transform: scaleX(-1) rotate(-65deg);
+  }
+}
+.gi-IntroContent--bottom {
+  .gi-IntroContent-container {
+    top: 110%;
+    right: auto;
+    //left: -50%;
+    //bottom: auto;
+    margin-left: -(440px / 2);
+  }
+  .gi-IntroContent-body {
+    padding: 0;
+    width: 440px;
+  }
+  .gi-IntroContent-arrow {
+    top: -80%;
+    left: 15%;
+    //right: 56px;
+    //bottom: 100%;
+    transform: rotate(-90deg);
+  }
+}
+.gi-IntroContent--popup {
+  display: none; // hidden by default
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  // Popup content:
+  .gi-IntroContent-container {
+    top: 10%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 680px;
+    max-width: 100%;
+    padding: 0;
+  }
+  .gi-IntroContent-body {
+    background: #fff;
+    color: #696d6f;
+    padding: 2.5rem;
+    font-size: 20px;
+    border-radius: 10px;
+    width: inherit;
+  }
+
+  &.is-active {
+    position: fixed;
+    display: block;
+  }
+}
+
+//
+.gi-IntroContent-bg {
+}
+.gi-IntroContent-action {
+  display: none;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 13;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  .btn {
+    margin-left: 0.75rem;
+    width: 120px;
+    border-radius: 4px;
+  }
+
+  &.is-active {
+    display: flex;
+    align-items: center;
+  }
+}
+.gi-IntroContent-stepNumber {
+  color: #fff;
+}
+
+//custom positions on expert's home page:
+// step 3:
+.expert-secondary-menu li:first-child .gi-IntroContent-body {
+  width: 400px;
+}

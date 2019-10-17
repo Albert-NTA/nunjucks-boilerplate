@@ -1,0 +1,120 @@
+<div class="gi-navBar {{navbar.context.class}}">
+    <div class="container-fluid">
+        <div class="gi-navBar-Inner">
+            <div class="gi-navBar-Brand">
+                <a href="{{navbar.context.logo.url}}" title="{{navbar.context.logo.alt}}">
+                    <img src="{{navbar.context.logo.src}}" alt="{{navbar.context.logo.alt}}"/>
+                </a>
+                {% if navbar.context.trial %}
+                    <span
+                        class="gi-SVGFluid u-paddingHorizontal-1">
+                        <!--assets/svg/free-trial.svg-->
+                        {% include "free-trial.svg" %}
+                    </span>
+                {% endif %}
+            </div>
+            {% if navbar.menu %}
+                <div class="gi-navBar-Menu">
+                    <div class="gi-navBar-Menu-Inner">
+                        {% for menu in navbar.menu %}
+                            <!--Menu Item-->
+                            {% if menu.submenu %}
+                                <!--Has Submenu-->
+                                <div class="gi-navBar-Menu-Item{% if menu.active %} is-active{% endif %} dropdown">
+                                    <button data-toggle="dropdown" type="button">
+                                        {{menu.title}}
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        {% for item in menu.submenu %}
+                                            <!--Submenu Item-->
+                                            <li {% if item.active %} class="is-active" {% endif %}>
+                                                <a href="{{item.url}}" title="{{item.title}}">
+                                                    {{item.title}}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <a class="gi-navBar-Menu-Item{% if menu.active %} is-active{% endif %}" title="{{menu.title}}" href="{{menu.url}}">
+                                    {{menu.title}}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+            {% if navbar.items %}
+                <div class="gi-navBar-Items">
+                    <button class="gi-navBar-Button gi-navBar-Button--sendGift" data-js-send-gift="true" data-js="true">
+                        <i class="icon ion-ios-gift u-marginRight-2 u-textLarge"></i>
+                        <span>Send a gift</span>
+                    </button>
+                    {% if navbar.context.search %}
+                        <div class="u-marginRight-3">
+                            <div class="gi-InputGroup">
+                                <input type="email" class="gi-Input" value="" placeholder="Search">
+                                <div class="gi-InputGroup-append">
+                                    <button class="gi-Button gi-Button--secondaryOutline">
+                                        <i class="icon ion-ios-search u-marginRight-0"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% for item in navbar.items %}
+                        {% if item.url %}
+                            <a href="{{item.url}}" title="{{item.title}}" class="{{item.class}}">
+                                {{item.title}}</a>
+                        {% else %}
+                            <button class="{{item.class}}">
+                                {{item.title}}</button>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if navbar.logined %}
+                <div class="gi-navBar-Items">
+                    {% for item in navbar.logined.items %}
+                        {% if item.url %}
+                            <a href="{{item.url}}" title="{{item.title}}" class="{{item.class}}">
+                                {{item.title}}</a>
+                        {% else %}
+                            <button class="{{item.class}}">
+                                {{item.title}}</button>
+                        {% endif %}
+                    {% endfor %}
+                    {% if navbar.logined.profile %}
+                        <div class="gi-navBar-Account">
+                            <div>Hello Henry</div>
+                            <ul class="gi-navBar-Account-Menu u-marginBottom-0">
+                                <li class="dropdown">
+                                    <a class="gi-navBar-Account-Profile" data-toggle="dropdown" href="">
+                                        <i class="icon ion-md-contact"></i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        {% for item in navbar.logined.profile %}
+                                            <li>
+                                                <a href="{{item.url}}" title="{{item.title}}">
+                                                    <i class="{{item.icon}} u-marginRight-2"></i>
+                                                    {{item.title}}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+                {% if navbar.logined.timer %}
+                    <div class="gi-WorkspaceTimer">
+                        <div class="gi-WorkspaceTimer-inner">
+                            <span class="gi-WorkspaceTimer-icon icon ion-ios-time"></span>
+                            <span class="gi-WorkspaceTimer-label">Time Remaining</span>
+                            <strong class="gi-WorkspaceTimer-value">18:23</strong>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>

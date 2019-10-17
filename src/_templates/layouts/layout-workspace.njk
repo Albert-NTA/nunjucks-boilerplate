@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    {% set mainCSS = ['app'] %}
+    {% include "_meta.njk" %}
+    <body>
+        <div id="root">
+            <div class="App">
+                {% block beforeBody %}{% endblock %}
+
+                <!-- layout: -->
+                <div
+                    class="gi-Layout gi-Workspace {% if classWorkspace %}{{classWorkspace}}{% endif %} ">
+                    <!-- layout/header: -->
+                    <div class="gi-LayoutHeader">
+                        {% block pageHeader%}{Header}
+                        {% endblock %}
+                    </div>
+                    <!-- layout/body: -->
+                    <div class="gi-LayoutBody">
+                        <div
+                            class="SplitPane vertical" style="display:flex; flex: 1 1 0%;height: 100%;position: absolute;outline: none;overflow: hidden;user-select: text;flex-direction: row;left: 0px; right: 0px;">
+                            <!-- Classes for react split pane: wrapper -->
+                            <div class="Pane Pane1 vertical" style="flex: 0 0 auto;position: relative;outline: none;width: 360px;">
+                                <!-- Classes for react split pane: left column -->
+                                <!-- left column: -->
+                                    <div class="gi-LayoutSidebar is-left"> {% block bodyLeft%}{% endblock %}
+                                </div>
+                                <!-- /left column -->
+                            </div>
+
+                            <span class="Resizer vertical"></span>
+                            <!-- Classes for react split pane: resizer -->
+
+                            <div class="Pane Pane2 vertical" style="flex: 1 1 0%;position: relative;">
+                                <!-- Classes for react split pane: right column -->
+                                <!-- main column wrapper: -->
+                                    <div
+                                    class="gi-LayoutMainWrap"> <!-- main column: -->
+                                    <div class="gi-LayoutMain">
+                                        {% block bodyMain %}{% endblock %}
+                                    </div>
+                                    <!-- right column: -->
+                                    <div class="gi-LayoutSidebar is-right">
+                                        {% block bodyRight %}{% endblock %}
+                                    </div>
+                                </div>
+                                <!-- /main column wrapper -->
+                            </div>
+                        </div>
+                        {% block extWorkspace %}{% endblock %}
+                    </div>
+                    <!-- layout/footer: -->
+                    <div class="gi-LayoutFooter">
+                        {% block pageFooter%}{% endblock %}
+                    </div>
+                </div>
+
+                <!-- other content (such as: modal,...) -->
+                {% block afterBody %}{% endblock %}
+            </div>
+        </div>
+        {% include "_script.njk" %}
+        {% block extraJS%}{% endblock %}
+    </body>
+</html>

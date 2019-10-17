@@ -1,0 +1,38 @@
+{
+  "navbar": {
+    "logined": {
+      "items": [
+        {
+          "title": "Stop working",
+          "class": "gi-Button gi-Button--dangerOutline"
+        }
+      ]
+    }
+  },
+  "performance": [
+    {
+      "label": "Rank",
+      "value": 0.7
+    },
+    {
+      "label": "Labels Completed",
+      "value": 200
+    },
+    {
+      "label": "Labels/hours",
+      "value": 12
+    },
+    {
+      "label": "Audit Accuracy",
+      "value": "80%"
+    },
+    {
+      "label": "Avg English Score",
+      "value": 2.3
+    },
+    {
+      "label": "Avg Naturallity",
+      "value": 2.3
+    }
+  ]
+}

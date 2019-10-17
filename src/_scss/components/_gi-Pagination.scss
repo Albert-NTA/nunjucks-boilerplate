@@ -1,0 +1,32 @@
+.gi-Pagination {
+    display: block;
+    text-align: center;
+
+    &-list {}
+    &--left {
+        text-align: left;
+    }
+    &--right {
+        text-align: right;
+    }
+    &--center {
+        text-align: center;
+    }
+
+    .gi-Button {
+        border-radius: 4px;
+        border: solid 1px #c1c7d0;
+        padding: 2px 11px;
+        margin: 0 4.5px;
+        color: #172b4d;
+        font-weight: normal;
+        &.active {
+            background-color: theme-color(primary);
+            color: #fff;
+            border-color: theme-color(primary);
+        }
+        &.disabled, &:disabled {
+            opacity: .5;
+        }
+    }
+}

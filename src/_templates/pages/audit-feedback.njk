@@ -1,0 +1,95 @@
+{% extends "layout.njk"%}
+{% set pageTitle = 'Labeler | Got It Pro On-demand Excel help' %}
+{% set classLayout = '' %}
+{% set navbar = {
+  context: general.navbar.context,
+  logined: labeler.navbar.logined
+  }
+%}
+
+{% block pageHeader %}
+  {% include "component/_gi-navBar.njk" %}
+{% endblock %}
+
+{% block pageBody %}
+  <div class="gi-LayoutMainWrap">
+    <div class="u-padding-3  u-width-100">
+      <div class="u-marginBottom-3 u-textSmall u-textGray">
+        <a href="#">Labeling Workspace</a>
+        <span class="u-marginLeft-1">&#62;</span>
+        <span class="u-marginLeft-1">Audit Feedback</span>
+      </div>
+
+      <div class="u-backgroundWhite gi-AuditFeedback">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Query</th>
+              <th>Label Type</th>
+              <th>Original Label</th>
+              <th>Accuracy<br />(Yes/No)</th>
+              <th>English<br />Quality<br />(0-3)</th>
+              <th>Natural<br />Language<br />(0-3)</th>
+              <th>Comments</th>
+              <th>Correct Label</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="gi-AuditFeedback-queryContent">{code}</td>
+              <td>Schema test</td>
+              <td>Get me a list of all the global customer ids for leads created before March 10, 2019</td>
+              <td>Yes</td>
+              <td>3</td>
+              <td>2</td>
+              <td>N/A</td>
+              <td>Get me a list of all the global customer ids for leads created before March 10, 2019</td>
+            </tr>
+            <tr>
+              <td class="gi-AuditFeedback-queryContent">{code}</td>
+              <td>Regular</td>
+              <td>Get me a list of all the global customer ids for leads created before March 10, 2019</td>
+              <td>Yes</td>
+              <td>3</td>
+              <td>2</td>
+              <td>N/A</td>
+              <td>Get me a list of all the global customer ids for leads created before March 10, 2019</td>
+            </tr>
+            <tr>
+              <td class="gi-AuditFeedback-queryContent">{code}</td>
+              <td>Schema test</td>
+              <td>Get me a list of all the global customer ids for leads created before March 10, 2019</td>
+              <td>Yes</td>
+              <td>3</td>
+              <td>2</td>
+              <td>N/A</td>
+              <td>Get me a list of all the global customer ids for leads created before March 10, 2019</td>
+            </tr>
+            <tr>
+              <td class="gi-AuditFeedback-queryContent">{code}</td>
+              <td>Regular</td>
+              <td>Get me a list of all the global customer ids for leads created before March 10, 2019</td>
+              <td>Yes</td>
+              <td>3</td>
+              <td>2</td>
+              <td>N/A</td>
+              <td>Get me a list of all the global customer ids for leads created before March 10, 2019</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="gi-Pagination">
+        <div class="gi-Pagination-list">
+          <button type="button" class="gi-Button" disabled="">&lt;</button>
+          <button type="button" class="gi-Button active">1</button>
+          <button type="button" class="gi-Button" page="2">2</button>
+          <button type="button" class="gi-Button" page="3">3</button>
+          <button type="button" class="gi-Button" page="4">4</button>
+          <button type="button" class="gi-Button">&gt;</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>        
+{% endblock %}

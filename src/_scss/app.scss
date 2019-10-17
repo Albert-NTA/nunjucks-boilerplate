@@ -1,0 +1,18 @@
+/*!
+ * Design UI Core v0.0.1
+ * Copyright 2018 Got It, Inc.
+ * Licensed under MIT
+ */
+
+@import "@gotit/ui_core/src/scss/functions";
+@import "@gotit/ui_core/src/scss/variables";
+@import "@gotit/ui_core/src/scss/mixins";
+@import "@gotit/ui_core/src/scss/modify";
+@import "./modify";
+@import "@gotit/ui_core/src/scss/utilities";
+
+//Components
+@import "@gotit/ui_core/src/scss/components";
+
+@import "./vendors";
+@import "./components";
