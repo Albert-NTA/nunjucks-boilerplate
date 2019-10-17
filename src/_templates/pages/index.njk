@@ -1,0 +1,20 @@
+{% extends "layout.njk"%}
+{% set pageTitle = 'Home | Got It Pro On-demand Excel help' %}
+{% set navbar = {
+    context: general.navbar.context,
+    logined: home.navbar.logined
+    }
+%}
+{% block pageHeader %}
+    {% include "component/_navBar.njk" %}
+{% endblock %}
+
+{% block pageBody %}
+    <h1>Page heading</h1>
+    <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+{% endblock %}
+
+{% block pageFooter %}
+    {% include "component/_footer.njk" %}
+{% endblock %}
+{% block extraJS %}{% endblock %}
